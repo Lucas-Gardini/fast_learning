@@ -7,8 +7,9 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #181818;
+    background-color: whitesmoke;
     font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
 }
 
 nav {
@@ -19,8 +20,8 @@ nav {
     max-height: 20%;
     min-width: 100%;
     max-width: 100%;
-    background-color: whitesmoke;
-    color: #181818;
+    background-color: #181818;
+    color: whitesmoke;
     overflow: hidden;
     /* GRID */
     display: grid;
@@ -37,6 +38,7 @@ nav .logo {
     grid-area: logo;
     margin: auto 10px;
     font-size: 25px;
+    color: whitesmoke !important;
 }
 
 nav .links {
@@ -46,11 +48,16 @@ nav .links {
     margin: auto 10px;
 }
 
+nav .links #mobile-toogler {
+    margin-left: 0%;
+    padding-left: 0%;
+}
+
 nav .links a {
     transition: 0.5s;
     text-decoration: none;
     padding: 5px;
-    color: #181818;
+    color: whitesmoke;
     background-color: none;
 }
 
@@ -64,20 +71,20 @@ nav .links a:hover {
 
 nav #mobile-toogler #toogle-menu {
     transition: 0.5s;
-    margin: 0;
-    background-color: whitesmoke;
+    margin: 5px;
+    background-color: #181818;
     border: none;
-    color: #181818;
+    color: whitesmoke;
     outline: none;
 }
 
 nav #mobile-toogler #toogle-menu:hover {
     transition: 0.2s;
-    margin: 0;
-    background-color: whitesmoke;
+    margin: 5px;
+    background-color: #181818;
     font-size: xx-large;
     cursor: pointer;
-    color: #181818;
+    color: whitesmoke;
 }
 
 nav #mobile-toogler #toogle-menu:focus {
@@ -123,5 +130,50 @@ nav #mobile-toogler #toogle-menu:focus {
     position: relative;
     min-width: 100%;
     max-width: 100%;
+    background-color: whitesmoke;
+}
+
+.main h1 {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    text-align: center;
+}
+
+.main p {
+    margin: 5px;
+}
+
+.main .tutorial {
+    min-width: auto;
+    max-width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.main .tutorial h1 {
+    text-align: left;
+    border-bottom: 1px solid black;
+}
+
+.main .tutorial .tutorial-btn {
     background-color: #181818;
+    color: var(--main-color);
+    width: auto;
+    margin-top: 10px;
+    padding: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+footer {
+    position: fixed;
+    bottom: 0%;
+    left: 0%;
+    min-width: 100%;
+    max-width: 100%;
+    display: grid;
+    place-items: center;
+    border-top: 0.1px solid black;
+    background-color: whitesmoke;
 }

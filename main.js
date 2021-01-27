@@ -4,6 +4,7 @@ const NavbarLinks = $('#links');
 const MenuToogler = $('#mobile-toogler');
 const Hamburguer = $('#toogle-menu');
 const MobileNavbar = $('#mobile-nav');
+const Navbar = $('nav');
 
 $(() =>{
     checkResponsivity();
@@ -12,6 +13,13 @@ $(() =>{
 
 $(window).on('resize', () =>{
     checkResponsivity();
+})
+
+$(window).on('scroll', ()=>{
+    if($(window).scrollTop() > 1 && Navbar.hasClass('fixed') === false){
+        Navbar.css('position', 'fixed');
+    }else if ($(window).scrollTop() < 1){
+        Navbar.css({'position': '', 'background-color': '', 'color': ''});}
 })
 
 Hamburguer.on('click', (event) =>{
@@ -33,8 +41,10 @@ function checkResponsivity(){
        NavbarLinks.addClass('hidden');
        MenuToogler.removeClass('hidden');
        Hamburguer.show();
+       $('.main').css('padding-top', '15%')
     }else{
         NavbarLinks.addClass('links');
         MenuToogler.addClass('hidden');
+        $('.main').css('padding-top', '5%')
     }
 }
