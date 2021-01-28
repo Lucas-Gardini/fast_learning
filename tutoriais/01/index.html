@@ -15,12 +15,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- WebSite Content -->
-    <link rel="preload" href="../style.css" as="style" />
-    <link rel="preload" href="../main.js" as="script" />
-    <link rel="preload" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" as="style" />
+    <link rel="preload" href="../../style.css" as="style" />
+    <link rel="preload" href="../../main.js" as="script" />
+    <link rel="preload" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css" as="style" />
 
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
     <title>Fast Learning - Tutoriais</title>
     <style>
         a {
@@ -29,6 +29,15 @@
 
         hr {
             background-color: whitesmoke;
+            color: whitesmoke;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            text-align: justify;
+            background-color: #181818;
+            padding: 5px;
             color: whitesmoke;
         }
     </style>
@@ -72,17 +81,65 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
             <br><br>
-            <a href="./files/01.rar" type="file" class="tutorial-btn"><i class="bi bi-file-code-fill"></i> Baixar
+            <a href="../files/01.rar" type="file" class="tutorial-btn"><i class="bi bi-file-code-fill"></i> Baixar
                 Arquivos</a>
-        </div>
-        <hr />
-        <div class="tutorial">
-            <h1>FastLearning #02 - Centralizando com css</h1>
-            <iframe src="https://www.youtube.com/embed/GBRKM6GJeW4" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
             <br><br>
-            <a href="./files/" type="file" class="tutorial-btn"><i class="bi bi-file-code-fill"></i> Baixar Arquivos</a>
+            <p>
+                Neste vídeo foi mostrado como realizar a conexão a um banco de dados feito em MySql utilizando a
+                linguagem php. O código pode ser visto abaixo:
+            </p>
+            <pre>
+                <code>
+&lt;?php
+function conectar(){
+    $provedor = 'localhost';
+    $usuario = 'root';
+    $senha = '';
+    $banco = 'banco';
+    return new mysqli($provedor, $usuario, $senha, $banco);
+}
+
+$conexao = conectar();
+$conexao->query('SELECT * FROM tabela')
+
+?&gt;
+                </code>
+            </pre>
+            <p>
+                Como mencionado no vídeo, caso seja necessário, você pode criar esta função em um arquivo separado como
+                um
+                <span style="font-family: monospace;">conexao.php</span>
+                e dentro de outro arquivo, realizar a inclusão deste mesmo arquivo a partir dos comandos:
+                <pre>
+                    <code>
+include './conexao.php';
+// ou
+include_once './conexao.php';
+                    </code>
+                </pre>
+            </p>
+            <p>
+                Para que possamos fechar a nossa conexão, inserimos o seguinte comando:
+                <pre>
+                    <code>
+$conexao->close();
+                    </code>
+                </pre>
+            </p>
+            <hr>
+            <p>
+                Irei fazer um vídeo sobre, mas aqui está como pegar valores de uma query:
+                <pre>
+                    <code>
+$resultado = $conexao->query('SELECT * FROM usuarios');
+$numero_linhas = $resultado->num_rows;
+for ($i = 0; $i &lt; $numero_linhas; $i++){
+    $valores = $resultado->fetch_array();
+    echo "O nome do usuário é: "..$valores['nome'];
+}
+                    </code>
+                </pre>
+            </p>
         </div>
     </div>
     <br>
@@ -93,8 +150,8 @@
     <footer>
         <p> &copy; KowalskiJr</p>
     </footer>
-    <script src="../node_modules/jquery/dist/jquery.js" type="text/javascript"></script>
-    <script src="../main.js" type="text/javascript"></script>
+    <script src="../../node_modules/jquery/dist/jquery.js" type="text/javascript"></script>
+    <script src="../../main.js" type="text/javascript"></script>
 </body>
 
 </html>
