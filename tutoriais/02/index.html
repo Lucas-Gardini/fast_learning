@@ -76,70 +76,55 @@
     </div>
     <div class="main">
         <div class="tutorial">
-            <h1>FastLearning #01 - Como conectar a um banco de dados Mysql com php?</h1>
-            <iframe src="https://www.youtube.com/embed/UHBa_YVY6k8" frameborder="0"
+            <h1><a href="./02">FastLearning #02 - Centralizando com css</a></h1>
+            <iframe src="https://www.youtube.com/embed/GBRKM6GJeW4" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
             <br><br>
-            <a href="./files/01.rar" type="file" class="tutorial-btn"><i class="bi bi-file-code-fill"></i> Baixar
+            <a href="../files/02.rar" type="file" class="tutorial-btn"><i class="bi bi-file-code-fill"></i> Baixar
                 Arquivos</a>
             <br><br>
             <p>
-                Neste vídeo foi mostrado como realizar a conexão a um banco de dados feito em MySql utilizando a
-                linguagem php. O código pode ser visto abaixo:
+                Neste vídeo foi mostrado como centralizar elementos do HTML com css, os códigos css respectivos estão
+                abaixo:
             </p>
             <pre>
                 <code>
-&lt;?php
-function conectar(){
-    $provedor = 'localhost';
-    $usuario = 'root';
-    $senha = '';
-    $banco = 'banco';
-    return new mysqli($provedor, $usuario, $senha, $banco);
+/* Utilizar somente para páginas sem scroll! Recomendando para elementos de tamanho médio e estáticos! */
+/* Centralizando utilizando posições absolutas */
+
+.centralizar01 {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%)
 }
 
-$conexao = conectar();
-$conexao->query('SELECT * FROM tabela')
+/* Utilizar em elementos-pai, para centralizar seus elementos. Geralmente o mais utilizado, por ter um posicionamento relativo */
 
-?&gt;
+.centralizar02 {
+position: relative;
+width: 100%;
+height: 100%;
+display: grid;
+place-items: center;
+}
+
+/* Centralizando textos (somente horizontalmente) */
+
+.centralizar03 {
+text-align: center;
+}
+
+/* Utilizando o mesmo método da primeira classe, porém centralizando somente verticalmente */
+
+.centralizar04 {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+}
                 </code>
             </pre>
-            <p>
-                Como mencionado no vídeo, caso seja necessário, você pode criar esta função em um arquivo separado como
-                um
-                <span style="font-family: monospace;">conexao.php</span>
-                e dentro de outro arquivo, realizar a inclusão deste mesmo arquivo a partir dos comandos:
-                <pre>
-                    <code>
-include './conexao.php';
-// ou
-include_once './conexao.php';
-                    </code>
-                </pre>
-            </p>
-            <p>
-                Para que possamos fechar a nossa conexão, inserimos o seguinte comando:
-                <pre>
-                    <code>
-$conexao->close();
-                    </code>
-                </pre>
-            </p>
-            <hr>
-            <p>
-                Irei fazer um vídeo sobre, mas aqui está como pegar valores de uma query:
-                <pre>
-                    <code>
-$resultado = $conexao->query('SELECT * FROM usuarios');
-$numero_linhas = $resultado->num_rows;
-for ($i = 0; $i &lt; $numero_linhas; $i++){
-    $valores = $resultado->fetch_array();
-    echo "O nome do usuário é: "..$valores['nome'];
-}
-                    </code>
-                </pre>
-            </p>
         </div>
     </div>
     <br>
